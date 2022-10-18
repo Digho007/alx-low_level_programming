@@ -12,7 +12,5 @@ int _abs(int r)
 	if (r < 0)
 		r *= -1;
 	printf("%d\n", r);
-	if (r > 0)
-		printf("%d\n", r);
 	return (r);
 }
