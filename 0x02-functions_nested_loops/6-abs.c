@@ -4,7 +4,7 @@
 /**
  * _abs - computes absolute value of an integer
  * @r: input
- * Return: 0 signifies success
+ * Return: absolute value of the input
  */
 
 int _abs(int r)
