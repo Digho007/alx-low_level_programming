@@ -11,8 +11,9 @@ int main(void)
 
 	a = 0;
 	b = 1;
+	sum = 0;
 
-	for (n = 0; n <= 50; n++)
+	for (n = 0; n < 50; n++)
 	{
 		res = a + b;
 		a = b;
