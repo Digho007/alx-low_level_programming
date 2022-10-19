@@ -7,17 +7,19 @@
 
 int main(void)
 {
-	int n, res;
-	int a = 1;
-	int b = 2;
+	long int n, res;
+	long int a = 1;
+	long int b = 2;
 
-	printf("%d, ", a);
-	printf("%d, ", b);
+	printf("%ld, ", a);
+	printf("%ld, ", b);
 
 	for (n = 0; n <= 48; n++)
 	{
 		res = a + b;
-		printf("%d, ", res);
+		printf("%ld, ", res);
+		b = res;
+		a = b;
 	}
 	printf("\n");
 	return (0);
