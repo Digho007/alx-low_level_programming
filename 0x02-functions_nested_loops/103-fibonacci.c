@@ -11,7 +11,6 @@ int main(void)
 
 	a = 0;
 	b = 1;
-	n = 0;
 
 	while (n = true)
 	{
@@ -24,6 +23,6 @@ int main(void)
 		} else
 			break;
 	} n = false;
-	printf("%d\n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
