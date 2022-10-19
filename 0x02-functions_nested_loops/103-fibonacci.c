@@ -11,6 +11,7 @@ int main(void)
 
 	a = 0;
 	b = 1;
+	n = 0;
 
 	while (n == 0)
 	{
@@ -22,7 +23,7 @@ int main(void)
 			sum += res;
 		} else
 			break;
-	} n == 1;
+	} n = 1;
 	printf("%ld\n", sum);
 	return (0);
 }
