@@ -7,20 +7,21 @@
 
 int main(void)
 {
-	long int n, res;
-	long int a = 1;
-	long int b = 2;
+	long int n, res, a, b;
 
-	printf("%ld, ", a);
-	printf("%ld, ", b);
+	a = 0;
+	b = 1;
 
-	for (n = 0; n < 48; n++)
+	for (n = 0; n < 50; n++)
 	{
 		res = a + b;
-		printf("%ld, ", res);
-		b = res;
 		a = b;
+		b = res;
+		printf("%ld", res);
+		if (n == 49)
+			printf("\n");
+		else
+			printf(", ");
 	}
-	printf("\n");
 	return (0);
 }
