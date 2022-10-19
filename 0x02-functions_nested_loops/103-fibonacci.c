@@ -17,7 +17,7 @@ int main(void)
 		res = a + b;
 		a = b;
 		b = res;
-		if (res % 2 == 0 && res <= 4000000)
+		if (res % 2 == 0 && res < 4000000)
 		{
 			sum += res;
 		}
