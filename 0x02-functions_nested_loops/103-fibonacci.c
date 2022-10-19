@@ -12,7 +12,7 @@ int main(void)
 	a = 0;
 	b = 1;
 
-	while (n = true)
+	while (n == 0)
 	{
 		res = a + b;
 		a = b;
@@ -22,7 +22,7 @@ int main(void)
 			sum += res;
 		} else
 			break;
-	} n = false;
+	} n == 1;
 	printf("%ld\n", sum);
 	return (0);
 }
