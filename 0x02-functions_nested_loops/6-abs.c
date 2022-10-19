@@ -3,13 +3,12 @@
 /**
  * _abs - computes absolute value of an integer
  * @r: input
- * Return: 0 means successful
+ * Return: the absolute value
  */
 
 int _abs(int r)
 {
 	if (r < 0)
 		r *= -1;
-	_putchar(r);
-	return (0);
+	return (r);
 }
