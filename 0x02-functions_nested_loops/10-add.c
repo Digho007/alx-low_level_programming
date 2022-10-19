@@ -2,7 +2,8 @@
 
 /**
  * add - adds 2 integers
- * @a and @b are the integers
+ * @a: is the first integer
+ * @b: is the second
  * Return: the resukt of the addition
  */
 
