@@ -11,19 +11,17 @@ int main(void)
 
 	a = 0;
 	b = 1;
-	n = 0;
 
-	while (n == 0)
+	for (n = 0; n <= 50; n++)
 	{
 		res = a + b;
 		a = b;
 		b = res;
-		if ((res <= 4000000) && (res % 2 == 0))
+		if (res % 2 == 0 && res <= 4000000)
 		{
 			sum += res;
-		} else
-			break;
-	} n = 1;
+		}
+	}
 	printf("%ld\n", sum);
 	return (0);
 }
