@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main - print number from 1~100, but instead:
- * the number is multiples of 3, print Fizz;
- * the number is multiples of 5, print Buzz;
- * the number is both of multiples of 3 and 5, print FizzBuzz
+ * main - print numbers from 1~100
+ * but replaces multiples of 3 with Fizz
+ * and  multitudes of 5 with Buzz
+ * and multiples of 5  and 3 with FizzBuzz
  *
  * Return: 0 (on success)
  */
@@ -15,7 +15,7 @@ int main(void)
 
 	for (n = 1; n <= 100; n++)
 	{
-		if (n % 3 == 0 && n % 5 == 0)
+		if (n % 15 == 0)
 		{
 			printf("FizzBuzz");
 		}
