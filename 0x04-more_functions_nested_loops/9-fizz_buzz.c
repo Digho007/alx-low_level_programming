@@ -5,9 +5,10 @@
  * replaces multiples of 3 with Fizz
  * replaces multiples of 5 with Buzz
  * replaces multiples of 3 and 5 with FizzBuzz
+ * Return: 0 means successful
  */
 
-void main(void)
+int main(void)
 {
 	int i;
 
@@ -25,4 +26,6 @@ void main(void)
 			printf("%d ", i);
 	}
 	printf("\n");
+
+	return (0);
 }
