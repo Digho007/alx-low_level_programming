@@ -15,7 +15,7 @@ int main(void)
 		while (num % i == 0)
 			num = num / i;
 	}
-	ptintf("%lu\n", num);
+	printf("%lu\n", num);
 	return (0);
 }
 
