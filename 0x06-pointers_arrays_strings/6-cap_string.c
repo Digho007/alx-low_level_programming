@@ -11,7 +11,7 @@ char *cap_string(char *str)
 	int i, j;
 	char sep[] = " \t\n,;.!?\"(){}";
 
-	if (str[0] != '\0')
+	if (str[0] >= 'a' && str[0] <= 'z')
 	{
 		str[0] -= 32;
 	}
