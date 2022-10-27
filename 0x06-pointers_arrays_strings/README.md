@@ -17,3 +17,11 @@
 7-leet.c--- a function that encodes a string into 1337.
 
 8-rot13.c--- a function that encodes a string using lot13.
+
+9-print_number.c--- a function that prints an integer.
+
+10-magic.c--- the program prints a[2] = 98 followed by a new line.
+
+11-infinte_add.c--- a function that adds two numbers.
+
+12-print_buffer.c--- a function that prints a buffer.
