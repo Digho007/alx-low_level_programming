@@ -16,7 +16,5 @@ int _strcmp(char *s1, char *s2)
 	for (j = 0; s2[j] != '\0'; j++)
 		;
 	if (i == j)
-		return (0);
-	else
 		return (i - j);
 }
