@@ -16,13 +16,10 @@ int _strcmp(char *s1, char *s2)
 	for (j = 0; s2[j] != '\0'; j++)
 		;
 	if (i == j)
-		_putchar('0');
+		return (0);
 	else if (i < j)
-	{
-		_putchar('-');
-		_putchar('1');
-	} else
-		_putchar('1');
-
+		return (-1);
+	else
+		return (1);
 	return (0);
 }
