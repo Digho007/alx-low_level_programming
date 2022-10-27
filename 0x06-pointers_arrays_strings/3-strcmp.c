@@ -17,8 +17,6 @@ int _strcmp(char *s1, char *s2)
 		;
 	if (i == j)
 		return (0);
-	else if (i < j)
-		return (-1);
 	else
-		return (1);
+		return (i - j);
 }
