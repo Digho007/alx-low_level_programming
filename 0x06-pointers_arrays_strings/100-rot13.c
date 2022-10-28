@@ -14,10 +14,10 @@ char *rot13(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; alpha[i] != '\0'; i++)
+		for (j = 0; alpha[j] != '\0'; j++)
 		{
-			if (str[i] == alpha[i])
-				str[i] = code[i];
+			if (str[i] == alpha[j])
+				str[i] = code[j];
 		}
 	}
 	return (str);
