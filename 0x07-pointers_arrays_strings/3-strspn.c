@@ -19,8 +19,9 @@ unsigned int _strspn(char *s, char *accept)
 			c++;
 			break;
 		}
-		if (accept[j] == '\0')
-			break;
+		j++;
+	if (accept[j] == '\0')
+		break;
 	}
 	return (c);
 
