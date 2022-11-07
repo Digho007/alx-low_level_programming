@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * strstr - function that locates a string
+ * _strstr - function that locates a string
  * @needle: substring
  * @haystack: string
  * Return: pointer to the beginning of the elocated substring
@@ -10,24 +10,25 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i = 0, j = 0;
+	int i, j, c;
 
-	while (haystack[i])
+	i = 0;
+	c = 0;
+
+	while (haystack[i] != '\0')
 	{
-		while (neddle[j] && (haystack[i] == needle[0]))
+		j = 0;
+		while (needle[j + c] != '\0' && haystack[i + c] != '\0'
+				&& needle[j + c] == haystack[i + c])
 		{
-			if (haystack[i + j] == needle[j])
-				j++;
-			else
+			if (haystack[i + c] != needle[j + c])
 				break;
+			c++;
 		}
-		if (needle[j])
-		{
-			i++;
-			j = 0;
-		}
-		else
-			return (haystack + i);
+		if (needle[j + c] == '\0')
+			return (&haystack[i]);
+		j++;
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
