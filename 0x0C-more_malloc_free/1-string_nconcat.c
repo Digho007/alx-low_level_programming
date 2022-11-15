@@ -28,7 +28,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		if (i < strlen1)
 			p[i] = s1[i];
 		else
-			p[i] = s2[(strlen1 + n) - i];
+			p[i] = s2[((strlen1 + n) - i)];
 	}
 	p[i] = '\0';
 
