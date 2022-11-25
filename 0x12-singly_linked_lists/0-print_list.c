@@ -1,16 +1,17 @@
 #include "lists.h"
 #include <stdio.h>
+
 /**
  * print_list - a function iterate all the linked list node and print it
  * @h: a pointer to head of first node
- *
- * Return: return numbers of node printed on sucess
+ * Return: return numbers of node printed on success
  */
+
 size_t print_list(const list_t *h)
 {
-	size_t i = 0;
+	size_t i;
 
-	for (i; h != NULL; i++)
+	for (i = 0; h != NULL; i++)
 	{
 		if (h->str == NULL)
 			printf("[0] (nil)\n");
