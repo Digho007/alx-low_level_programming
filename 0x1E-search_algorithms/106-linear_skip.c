@@ -1,65 +1,56 @@
 #include "search_algos.h"
-/**
- * linear_skiplist - a search function use linear search algorithm
- * @list: a head of linked list
- * @value: a value given to be searched
- * Return: return the address of search value if found, otherwise -1
- */
-skiplist_t *linear_skiplist(skiplist_t *list, int value)
-{
-	skiplist_t *res = list, *end = NULL;
 
-	if (!list)
-		return (NULL);
-	end = list->express;
-	while (res != end)
-	{
-		printf("Value checked index [%lu] = [%d]\n",
-		       res->index, res->n);
-		if (res->n == value)
-			return (res);
-		res = res->next;
-	}
-	return (NULL);
-}
 
 /**
- * linear_skip - a search function use skiplist-express search algorithm
- * @list: a head of the singlely linked list
- * @value: a value given to search for
- * Return: return the address of value if found, otherwise NULL
+ * linear_skip - searches for a value conatined in a skip list; assumes a
+ * list with sorted values and a single skip layer with nodes at every index
+ * which is a multiple of the square root of the size of the list
+ *
+ * @list: pointer to the head of the skip list to traverse
+ * @value: value to search for
+ * Return: pointer on the first node where value is located, or NULL if list
+ * is NULL or value not found
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *node = list, *res = list;
+	skiplist_t *temp = NULL, *stop = NULL;
 
 	if (!list)
 		return (NULL);
-	node = node->express;
-	while (node)
+
+	temp = list;
+	while (temp && temp->express && temp->express->n < value)
 	{
-		if (node->n < value)
-		{
-			printf("Value checked at index [%lu] = [%d]\n",
-			       node->index, node->n);
-			res = node;
-			node = node->express;
-		}
-		else
-			break;
+		printf("Value checked at index [%lu] = [%i]\n",
+		       temp->express->index, temp->express->n);
+		temp = temp->express;
 	}
-	if (res->n == value)
-		return (res);
-	if (!node)
+	stop = temp;
+	while (stop && stop->next != stop->express)
+		stop = stop->next;
+	/* value potentially lies between two express nodes */
+	if (temp->express)
 	{
-		node = res;
-		while (node->next)
-			node = node->next;
+		printf("Value checked at index [%lu] = [%i]\n",
+		       temp->express->index, temp->express->n);
+		printf("Value found between indexes [%lu] and [%lu]\n",
+		       temp->index, temp->express->index);
 	}
+	/* value is greater than last express node, potentially out of list */
 	else
-		printf("Value checked at index [%lu] = [%d]\n",
-		       node->index, node->n);
-	printf("Value found between indexes [%lu] and [%lu]\n",
-	       res->index, node->index);
-	return (linear_skiplist(res, value));
+		printf("Value found between indexes [%lu] and [%lu]\n",
+		       temp->index, stop->index);
+
+	while (temp != stop && temp->n < value)
+	{
+		printf("Value checked at index [%lu] = [%i]\n",
+		       temp->index, temp->n);
+		temp = temp->next;
+	}
+	printf("Value checked at index [%lu] = [%i]\n",
+	       temp->index, temp->n);
+
+	if (temp == stop)
+		return (NULL);
+	return (temp);
 }

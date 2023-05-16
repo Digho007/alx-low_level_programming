@@ -1,66 +1,45 @@
 #include "search_algos.h"
-/**
- * linear_list - a search function use linear search algorithm
- * @list: a head of linked list
- * @start: a start index of the node in list
- * @end: a end index of the node in list
- * @value: a value given to be searched
- * Return: return the address of search value if found, otherwise -1
- */
-listint_t *linear_list(listint_t *list, size_t start, size_t end, int value)
-{
-	size_t i;
-	listint_t *res = list;
-
-	if (!list)
-		return (NULL);
-	while (res->index != start)
-		res = res->next;
-	for (i = start; i <= end; i++)
-	{
-		printf("Value checked index [%lu] = [%d]\n", i, res->n);
-		if (res->n == value)
-			return (res);
-		res = res->next;
-	}
-	return (NULL);
-}
 
 /**
- * jump_list - a search function use jump search algorithm
- * @list: a head of the singlely linked list
- * @size: the number of nodes in the list
- * @value: a value given to search for
- * Return: return the address of value if found, otherwise NULL
+ * jump_list - Searching for an algorithm in a sorted singly
+ *             linked list of integers using jump search.
+ * @list: A pointer to the  head of the linked list to search.
+ * @size: The number of nodes in the list.
+ * @value: The value to search for.
+ *
+ * Return: If the value is not present or the head of the list is NULL, NULL.
+ *         Otherwise, a pointer to the first node where the value is located.
+ *
+ * Description: Prints a value every time it is compared in the list.
+ *              Uses the square root of the list size as the jump step.
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t left, right, bloc;
-	listint_t *res = list;
+	size_t step, step_size;
+	listint_t *node, *jump;
 
-	if (!list)
+	if (list == NULL || size == 0)
 		return (NULL);
-	bloc = sqrt(size);
-	right = bloc;
-	left = 0;
-	while (res->index != right)
-		res = res->next;
-	while (res->n < value)
+
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		left = right;
-		right += bloc;
-		printf("Value checked at index [%lu] = [%d]\n", left, res->n);
-		if (right >= size)
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
 		{
-			right = size - 1;
-			break;
+			if (jump->index + 1 == size)
+				break;
 		}
-		while (res->index != right && res->next != NULL)
-			res = res->next;
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
-	if (res->n == value)
-		return (res);
-	printf("Value checked at index [%lu] = [%d]\n", right, res->n);
-	printf("Value found between indexes [%lu] and [%lu]\n", left, right);
-	return (linear_list(list, left, right, value));
+
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
+
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+
+	return (node->n == value ? node : NULL);
 }
